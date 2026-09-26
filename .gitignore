@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# rules/2-anexos/I-github-common.md: always ignore .env and *.pem
+.env
+*.pem
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
