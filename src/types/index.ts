@@ -13,12 +13,6 @@ export interface Student {
   updatedAt: string
 }
 
-export interface ApiError {
-  error: string
-  message: string
-  correlationId?: string
-}
-
 export interface PaginatedMeta {
   page: number
   limit: number
