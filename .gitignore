@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# @module-federation/vite's own dev-time diagnostics cache
+.mf
+
 # rules/2-anexos/I-github-common.md: always ignore .env and *.pem
 .env
 *.pem
