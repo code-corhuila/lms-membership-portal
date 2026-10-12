@@ -140,18 +140,18 @@ export function StudentsListPage() {
       {view.status === 'data' && (
         <Card className="overflow-x-auto p-0">
           <table className="w-full text-left text-sm">
-            <thead className="border-b border-slate-200 bg-slate-50 text-slate-500">
+            <thead className="border-b border-slate-200 bg-slate-50/80">
               <tr>
-                <th className="px-4 py-3 font-medium">Name</th>
-                <th className="px-4 py-3 font-medium">Document ID</th>
-                <th className="px-4 py-3 font-medium">Email</th>
-                <th className="px-4 py-3 font-medium">Status</th>
-                <th className="px-4 py-3 font-medium">Actions</th>
+                <th className="px-4 py-3 text-xs font-semibold tracking-wide text-slate-500 uppercase">Name</th>
+                <th className="px-4 py-3 text-xs font-semibold tracking-wide text-slate-500 uppercase">Document ID</th>
+                <th className="px-4 py-3 text-xs font-semibold tracking-wide text-slate-500 uppercase">Email</th>
+                <th className="px-4 py-3 text-xs font-semibold tracking-wide text-slate-500 uppercase">Status</th>
+                <th className="px-4 py-3 text-xs font-semibold tracking-wide text-slate-500 uppercase">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {view.students.map((s) => (
-                <tr key={s.id}>
+                <tr key={s.id} className="transition-colors hover:bg-slate-50/60">
                   {editingId === s.id ? (
                     <>
                       <td className="px-4 py-2 align-top">
@@ -196,16 +196,25 @@ export function StudentsListPage() {
                     </>
                   ) : (
                     <>
-                      <td className="px-4 py-3">{s.fullName}</td>
-                      <td className="px-4 py-3 text-slate-500">{s.documentId}</td>
+                      <td className="px-4 py-3 font-medium text-slate-900">{s.fullName}</td>
+                      <td className="px-4 py-3 text-slate-500 tabular-nums">{s.documentId}</td>
                       <td className="px-4 py-3 text-slate-500">{s.email}</td>
                       <td className="px-4 py-3">
                         {s.deactivatedAt ? (
-                          <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">Deactivated</span>
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-500 ring-1 ring-slate-500/10 ring-inset">
+                            <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
+                            Deactivated
+                          </span>
                         ) : s.suspendedUntil ? (
-                          <span className="rounded-full bg-amber-50 px-2 py-0.5 text-xs text-warning-500">Suspended</span>
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-medium text-warning-500 ring-1 ring-amber-500/10 ring-inset">
+                            <span className="h-1.5 w-1.5 rounded-full bg-warning-500" />
+                            Suspended
+                          </span>
                         ) : (
-                          <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-xs text-success-600">Active</span>
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-success-600 ring-1 ring-emerald-600/10 ring-inset">
+                            <span className="h-1.5 w-1.5 rounded-full bg-success-500" />
+                            Active
+                          </span>
                         )}
                       </td>
                       <td className="px-4 py-3">
